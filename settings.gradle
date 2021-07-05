@@ -1,0 +1,2 @@
+rootProject.name = "Nasa info app"
+include ':app'
