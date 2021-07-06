@@ -2,4 +2,5 @@
     <string name="app_name">Nasa info app</string>
     <string name="wiki_hint">Search on wiki</string>
     <string name="wiki_helper_text">Find some term on wiki</string>
+    <string name="change_theme">change theme</string>
 </resources>
