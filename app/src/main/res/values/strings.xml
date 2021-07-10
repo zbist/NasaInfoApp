@@ -3,4 +3,7 @@
     <string name="wiki_hint">Search on wiki</string>
     <string name="wiki_helper_text">Find some term on wiki</string>
     <string name="change_theme">change theme</string>
+    <string name="main">main</string>
+    <string name="moon">moon</string>
+    <string name="earth">earth</string>
 </resources>

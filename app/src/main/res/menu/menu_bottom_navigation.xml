@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/main"
+        android:title="@string/main"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/moon"
+        android:title="@string/moon"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/earth"
+        android:title="@string/earth"
+        app:showAsAction="never" />
+</menu>
