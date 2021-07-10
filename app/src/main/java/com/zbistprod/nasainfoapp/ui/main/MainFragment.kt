@@ -3,6 +3,10 @@ package com.zbistprod.nasainfoapp.ui.main
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.preference.Preference
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Toast
@@ -10,6 +14,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.zbistprod.nasainfoapp.MainActivity
 import com.zbistprod.nasainfoapp.R
 import com.zbistprod.nasainfoapp.databinding.MainFragmentBinding
 import com.zbistprod.nasainfoapp.utils.viewBinding
@@ -31,6 +36,7 @@ class MainFragment : Fragment(R.layout.main_fragment) {
         if (savedInstanceState == null) {
             viewModel.getApod()
         }
+        setHasOptionsMenu(true)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -45,6 +51,8 @@ class MainFragment : Fragment(R.layout.main_fragment) {
                     Uri.parse("https://en.wikipedia.org/wiki/${binding.inputEditText.text.toString()}")
             })
         }
+
+
 
     }
 
@@ -68,6 +76,20 @@ class MainFragment : Fragment(R.layout.main_fragment) {
     private fun setBottomSheetBehavior(bottomSheet: ConstraintLayout) {
         bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet)
         bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.toolbar_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.change_theme -> {
+                (requireActivity() as MainActivity).changeTheme()
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
 }
