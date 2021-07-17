@@ -36,7 +36,6 @@ class MainFragment : Fragment(R.layout.main_fragment) {
         if (savedInstanceState == null) {
             viewModel.getApod()
         }
-        setHasOptionsMenu(true)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -76,20 +75,6 @@ class MainFragment : Fragment(R.layout.main_fragment) {
     private fun setBottomSheetBehavior(bottomSheet: ConstraintLayout) {
         bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet)
         bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.toolbar_menu, menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.change_theme -> {
-                (requireActivity() as MainActivity).changeTheme()
-            }
-        }
-        return super.onOptionsItemSelected(item)
     }
 
 }
