@@ -90,6 +90,10 @@ class MainActivity : AppCompatActivity(), RouterHolder {
             R.id.change_theme -> {
                 changeTheme()
             }
+
+            R.id.open_notes -> {
+                mainRouter.openNotes()
+            }
         }
         return super.onOptionsItemSelected(item)
     }

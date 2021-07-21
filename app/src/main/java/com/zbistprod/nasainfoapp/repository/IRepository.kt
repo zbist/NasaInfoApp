@@ -6,6 +6,7 @@ interface IRepository {
 
     fun getApod(callback: (result: RepositoryResult<Apod>) -> Unit)
 
+    fun getNotes(): MutableList<String>
 }
 
 sealed class RepositoryResult<T> {

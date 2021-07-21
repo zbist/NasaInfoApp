@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <item
         android:id="@+id/change_theme"
         android:title="@string/change_theme"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/open_notes"
+        android:title="@string/open_notes_list"
+        app:showAsAction="never" />
+
 </menu>
