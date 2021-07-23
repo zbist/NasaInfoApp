@@ -1,9 +1,15 @@
 package com.zbistprod.nasainfoapp.ui.main
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.Typeface
 import android.net.Uri
 import android.os.Bundle
 import android.preference.Preference
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
+import android.text.style.StyleSpan
 import android.view.*
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
@@ -61,7 +67,22 @@ class MainFragment : Fragment(R.layout.main_fragment) {
     private fun initObservers() {
 
         viewModel.apodResponseLiveData.observe(viewLifecycleOwner) {
-            binding.bottomSheet.bottomSheetDescriptionHeader.text = it.title
+
+            val spannable = SpannableString(it.title)
+            spannable.setSpan(
+                StyleSpan(Typeface.ITALIC),
+                0,
+                spannable.length,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+            )
+            spannable.setSpan(
+                ForegroundColorSpan(Color.GREEN),
+                0,
+                spannable.length,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+            )
+
+            binding.bottomSheet.bottomSheetDescriptionHeader.text = spannable
             binding.bottomSheet.bottomSheetDescription.text = it.explanation
             if (it.mediaType == "image") {
                 Glide.with(binding.imageView)
