@@ -33,4 +33,14 @@ object RepositoryImpl : IRepository {
         })
 
     }
+
+    override fun getNotes() = mutableListOf(
+        "some text",
+        "some text some text",
+        "some text some text some text",
+        "some text some text some text some text",
+        "some text some text some text some text some text some text some text some text",
+        "some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text",
+        "some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text",
+    )
 }

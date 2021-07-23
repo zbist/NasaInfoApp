@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="margin">10dp</dimen>
+    <dimen name="card_elevation">10dp</dimen>
+    <dimen name="card_radius">10dp</dimen>
+    <dimen name="notes_text_size">24sp</dimen>
 </resources>

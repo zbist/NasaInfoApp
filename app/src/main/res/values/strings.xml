@@ -6,4 +6,5 @@
     <string name="main">main</string>
     <string name="moon">moon</string>
     <string name="earth">earth</string>
+    <string name="open_notes_list">open notes list</string>
 </resources>
