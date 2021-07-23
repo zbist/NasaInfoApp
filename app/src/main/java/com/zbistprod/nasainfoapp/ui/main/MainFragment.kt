@@ -4,14 +4,16 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.preference.Preference
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
+import android.view.*
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
-import android.view.View
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.viewModels
+import androidx.transition.ChangeBounds
+import androidx.transition.ChangeImageTransform
+import androidx.transition.TransitionManager
+import androidx.transition.TransitionSet
 import com.bumptech.glide.Glide
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.zbistprod.nasainfoapp.MainActivity
@@ -24,6 +26,8 @@ class MainFragment : Fragment(R.layout.main_fragment) {
     companion object {
         fun newInstance() = MainFragment()
     }
+
+    private var isExpanded = false
 
     private val viewModel: MainViewModel by viewModels()
     private val binding: MainFragmentBinding by viewBinding(MainFragmentBinding::bind)
@@ -52,7 +56,6 @@ class MainFragment : Fragment(R.layout.main_fragment) {
         }
 
 
-
     }
 
     private fun initObservers() {
@@ -64,6 +67,22 @@ class MainFragment : Fragment(R.layout.main_fragment) {
                 Glide.with(binding.imageView)
                     .load(it.hdurl)
                     .into(binding.imageView)
+
+                binding.imageView.setOnClickListener {
+                    isExpanded = !isExpanded
+                    TransitionManager.beginDelayedTransition(
+                        binding.root,
+                        TransitionSet().addTransition(ChangeBounds())
+                            .addTransition(ChangeImageTransform())
+                    )
+
+                    val params: ViewGroup.LayoutParams = binding.imageView.layoutParams
+                    params.height =
+                        if (isExpanded) ViewGroup.LayoutParams.MATCH_PARENT else ViewGroup.LayoutParams.WRAP_CONTENT
+                    binding.imageView.layoutParams = params
+                    binding.imageView.scaleType =
+                        if (isExpanded) ImageView.ScaleType.CENTER_CROP else ImageView.ScaleType.FIT_CENTER
+                }
             }
         }
 
